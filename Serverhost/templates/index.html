@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMeter Dashboard</title>
+    <!-- Include Socket.IO from a CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <!-- Link CSS using Flask's url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- Card 1: Electricity Usage -->
+            <div class="card active" id="card-electricity">
+                <h1>View your CO2 Usage</h1>
+                <button onclick="requestGraph()">Generate Graph</button>
+                <br><br>
+                <img id="graphImage" src="" alt="Generated Graph">
+            </div>
+
+            <!-- Card 2: Carbon Footprint Input -->
+            <div class="card" id="card-carbon-input">
+                <h2>Carbon Footprint Input</h2>
+                <label for="distance">Distance Travelled (km):</label>
+                <input type="number" id="distance" name="distance" placeholder="Enter distance">
+                <label for="transport">Mode of Transport:</label>
+                <select id="transport" name="transport">
+                    <option value="car">Car</option>
+                    <option value="bus">Bus</option>
+                    <option value="bike">Bike</option>
+                    <option value="train">Train</option>
+                    <option value="walk">Walking</option>
+                </select>
+                <button class="button-submit" onclick="submitCarbonFootprint()">Submit</button>
+            </div>
+
+            <!-- Card 3: Carbon Footprint Overview -->
+            <div class="card" id="card-carbon-summary">
+                <h2>Your Carbon Footprint</h2>
+                <p>Total Carbon Footprint: <span id="carbon-total">0</span> kg CO2</p>
+                <p class="advice" id="personalised-advice">Loading advice...</p>
+            </div>
+        </div>
+        <!-- Carousel Navigation -->
+        <button class="carousel-control prev" onclick="prevCard()">&#8592;</button>
+        <button class="carousel-control next" onclick="nextCard()">&#8594;</button>
+    </div>
+    <!-- Include JS using Flask's url_for -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
