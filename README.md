@@ -2,7 +2,7 @@
 
 ## Description
 
-This project utilizes a Raspberry Pi to detect and calculate CO2 emissions, helping to monitor and reduce carbon emissions. It provides real-time CO2 usage data and detailed reports via a user-friendly web interface.
+This project utilizes a Raspberry Pi to detect and calculate CO2 emissions, helping to monitor and reduce carbon emissions. It provides real-time CO2 usage data and detailed reports via a user-friendly web interface. Note the project is still in very early development.
 
 ## Table of Contents
 
